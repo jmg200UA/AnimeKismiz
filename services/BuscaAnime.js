@@ -5,7 +5,6 @@ import axios from 'axios';
 
 
 const RandomAnime = () => {
-  console.log("Entra en random anime");
     const [anime, setAnime] = useState(null);
     const [loading, setLoading] = useState(true);
   
