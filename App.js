@@ -2,27 +2,15 @@ import React, { useState } from 'react';
 import { View, Text, Button, ImageBackground, StyleSheet } from 'react-native';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import RandomAnime from './services/RandomAnime';
+import MuestraRandomAnime from './pages/MuestraRandomAnime';
+import MuestraTopAnime from './pages/MuestraTopAnime';
+import Buscador from './components/Buscador';
+import AnimesRecomendados from './components/AnimesRecomendados';
 
 const App = () => {
   
   //Botones página principal
 
-  //Botón anime random
-  const [reloadComponent, setReloadComponent] = useState(false);
-  const [reloadInicio, setReloadInicio] = useState(false);
-  //Press para mostrar Random Anime
-  const handleButtonPress = () => {
-    console.log('Botón Press pulsado');
-    if(reloadInicio==false) setReloadInicio(true);
-    setReloadComponent(!reloadComponent );
-  };
-  //Press para cerrar Random Anime
-  const handleButtonCancel = () => {
-    console.log('Botón Cancel pulsado');
-    if(reloadInicio==true) setReloadInicio(false);
-    setReloadComponent(!reloadComponent);
-  };
 
 
   return (
@@ -33,15 +21,14 @@ const App = () => {
         imageStyle={styles.imageStyle}
       >
         <Header />
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          {reloadComponent && <RandomAnime />}
-          {!reloadComponent && reloadInicio && <RandomAnime/>}
-          <View>
-          <Button title="Random Anime" onPress={handleButtonPress}/>
-          {reloadInicio && (
-            <Button title="Cerrar Random Anime" onPress={handleButtonCancel}/>
-          )}
-          </View>
+        <Buscador />
+        <View style={styles.buttonContainer}>
+        <MuestraRandomAnime style={styles.buttonRandom}/>
+        <MuestraTopAnime style={styles.buttonTop}/>
+        </View>
+        <View>
+        <AnimesRecomendados/>
+          
         </View>
         <Footer />
       </ImageBackground>
@@ -59,6 +46,17 @@ const styles = StyleSheet.create({
   imageStyle: {
     opacity: 0.5,
   },
+  buttonContainer: {
+    flexDirection: 'row',
+    marginTop: 10,
+    justifyContent: 'center'
+  },
+  buttonRandom:{
+    marginRight: 10
+  },
+  buttonTop:{
+    marginRight: 10
+  }
 });
 
 export default App;

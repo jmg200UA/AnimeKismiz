@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "gufify",
-    "slug": "gufify",
+    "name": "AnimeKisMiz",
+    "slug": "AnimeKisMiz",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,7 +22,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.mrjavigm8.gufify"
+      "package": "com.mrjavigm8.AnimeKisMiz"
     },
     "web": {
       "favicon": "./assets/favicon.png"
