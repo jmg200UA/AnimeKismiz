@@ -5,7 +5,6 @@ import axios from 'axios';
 
 
 const RandomAnime = () => {
-  console.log("Entra en random anime");
     const [anime, setAnime] = useState(null);
     const [loading, setLoading] = useState(true);
   
@@ -17,7 +16,6 @@ const RandomAnime = () => {
           console.log(response.data);
           setAnime(response.data.data);
           setLoading(false);
-          console.log("Anime title: ", response.data.data.title);
         } catch (error) {
           console.log(error);
         }
@@ -35,7 +33,7 @@ const RandomAnime = () => {
     }
   
     return (
-      <View>
+      <View style={{marginBottom: 10}}>
         {anime && (
           <View style={styles.centrado}>
             <View>

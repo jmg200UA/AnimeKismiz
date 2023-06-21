@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "AnimeKisMiz",
-    "slug": "AnimeKisMiz",
+    "slug": "animekismiz",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -29,7 +29,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "4a606891-573d-4bc5-b90d-197e7eae9fe7"
+        "projectId": "53acc73b-fdbb-450b-827d-4b3809a16ae1"
       }
     },
     "owner": "mrjavigm8"

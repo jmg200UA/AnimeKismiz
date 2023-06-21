@@ -4,21 +4,21 @@ import React, { useState } from 'react';
 import { View, Text, Button, ImageBackground, StyleSheet } from 'react-native';
 import TopAnime from '../services/TopAnime';
 
-const MuestraTopAnime = () => {
+const MuestraTopAnime = ({ onBotonPulsadoTop, onBotonCerradoTop }) => {
     //Botón anime random
     const [reloadComponent, setReloadComponent] = useState(false);
     const [reloadInicio, setReloadInicio] = useState(false);
     //Press para mostrar Random Anime
     const handleButtonPress = () => {
-      console.log('Botón Press pulsado');
       if(reloadInicio==false) setReloadInicio(true);
       setReloadComponent(!reloadComponent );
+      onBotonPulsadoTop();
     };
     //Press para cerrar Random Anime
     const handleButtonCancel = () => {
-      console.log('Botón Cancel pulsado');
       if(reloadInicio==true) setReloadInicio(false);
       setReloadComponent(!reloadComponent);
+      onBotonCerradoTop();
     };
   
   

@@ -16,10 +16,8 @@ const TopAnime = () => {
           console.log(response);
           console.log(response.data);
           const numeroRandom = Math.floor(Math.random() * 25); // Generamos un número aleatorio del 0 al 24
-          console.log(numeroRandom); // Imprimimos número
           setAnime(response.data.data[numeroRandom]);
           setLoading(false);
-          console.log("Anime title TOP: ", response.data.data[0].title);
         } catch (error) {
           console.log(error);
         }
