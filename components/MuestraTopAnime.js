@@ -13,12 +13,16 @@ const MuestraTopAnime = ({ onBotonPulsadoTop, onBotonCerradoTop }) => {
       if(reloadInicio==false) setReloadInicio(true);
       setReloadComponent(!reloadComponent );
       onBotonPulsadoTop();
+      console.log("reload component: ", reloadComponent);
+      console.log("reload inicio: ", reloadInicio);
     };
     //Press para cerrar Random Anime
     const handleButtonCancel = () => {
-      if(reloadInicio==true) setReloadInicio(false);
-      setReloadComponent(!reloadComponent);
+      setReloadInicio(false);
+      setReloadComponent(false);
       onBotonCerradoTop();
+      console.log("reload component: ", reloadComponent);
+      console.log("reload inicio: ", reloadInicio);
     };
   
   

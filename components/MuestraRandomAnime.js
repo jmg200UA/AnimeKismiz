@@ -16,8 +16,8 @@ const MuestraRandomAnime = ({onBotonCerradoRandom, onBotonPulsadoRandom}) => {
     };
     //Press para cerrar Random Anime
     const handleButtonCancel = () => {
-      if(reloadInicio==true) setReloadInicio(false);
-      setReloadComponent(!reloadComponent);
+      setReloadInicio(false);
+      setReloadComponent(false);
       onBotonCerradoRandom();
     };
   

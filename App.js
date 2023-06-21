@@ -49,7 +49,7 @@ const App = () => {
       >
         <Header />
         <Buscador />
-        <ScrollView>
+        <ScrollView style={{marginBottom: 150}}>
         <View style={styles.buttonContainer}>
         {!botonPulsadoTop && <MuestraRandomAnime onBotonCerradoRandom={handleButtonCancellRandom} onBotonPulsadoRandom={handleButtonPressRandom} style={styles.buttonRandom}/>}
         {!botonPulsadoRandom && <MuestraTopAnime onBotonCerradoTop={handleButtonCancelTop} onBotonPulsadoTop={handleButtonPressTop} style={styles.buttonTop}/>}

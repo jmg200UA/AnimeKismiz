@@ -64,7 +64,7 @@ const itemWidth = windowWidth * 0.7;
 
 const styles = StyleSheet.create({
   container: {
-    height: 200,
+    height: 300,
     marginTop: 30
   },
   itemContainer: {
@@ -81,7 +81,8 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 14,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    height:150
   },
   titleSection:{
     marginTop: 8,
