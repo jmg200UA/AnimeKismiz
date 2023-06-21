@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, Button, ScrollView, ImageBackground, StyleSheet } from 'react-native';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import MuestraRandomAnime from './pages/MuestraRandomAnime';
-import MuestraTopAnime from './pages/MuestraTopAnime';
+import MuestraRandomAnime from './components/MuestraRandomAnime';
+import MuestraTopAnime from './components/MuestraTopAnime';
 import Buscador from './components/Buscador';
 import AnimesRecomendados from './components/AnimesRecomendados';
 
