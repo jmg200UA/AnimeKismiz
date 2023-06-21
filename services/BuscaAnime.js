@@ -1,12 +1,12 @@
 //Servicio que se encargará de hacer una petición a la api con el anime que se haya texteado
-// import React, { useEffect, useState } from 'react';
-// import { View, Text, Image, ActivityIndicator, StyleSheet } from 'react-native';
-// import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image, ActivityIndicator, StyleSheet } from 'react-native';
+import axios from 'axios';
 
 
 
-// const BuscaAnime = (anime) => {
-  
+const BuscaAnime = (anime) => {
+  console.log("Anime buscado: ", anime)
 //   fetch(`https://api.example.com/search?query=${anime}`)
 //   .then(response => response.json())
 //   .then(data => {
@@ -31,7 +31,7 @@
 //         )}
 //       </View>
 //     );
-//   };
+   };
 
 //   const styles = StyleSheet.create({
 //     container: {
@@ -53,5 +53,5 @@
 //     }
 //   });
   
-//   export default RandomAnime;
+  export default BuscaAnime;
   

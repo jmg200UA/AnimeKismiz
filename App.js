@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Button, ImageBackground, StyleSheet } from 'react-native';
+import { View, Text, Button, ScrollView, ImageBackground, StyleSheet } from 'react-native';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MuestraRandomAnime from './pages/MuestraRandomAnime';
@@ -49,6 +49,7 @@ const App = () => {
       >
         <Header />
         <Buscador />
+        <ScrollView>
         <View style={styles.buttonContainer}>
         {!botonPulsadoTop && <MuestraRandomAnime onBotonCerradoRandom={handleButtonCancellRandom} onBotonPulsadoRandom={handleButtonPressRandom} style={styles.buttonRandom}/>}
         {!botonPulsadoRandom && <MuestraTopAnime onBotonCerradoTop={handleButtonCancelTop} onBotonPulsadoTop={handleButtonPressTop} style={styles.buttonTop}/>}
@@ -57,6 +58,8 @@ const App = () => {
         <AnimesRecomendados/>
           
         </View>
+        </ScrollView>
+        
         <Footer />
       </ImageBackground>
     </View>

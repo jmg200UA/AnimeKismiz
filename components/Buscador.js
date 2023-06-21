@@ -9,7 +9,7 @@ const Buscador= () => {
     const [busqueda, setBusqueda] = useState("");
 
     const handleBusqueda = () => {
-      //BuscaAnime(busqueda);
+      BuscaAnime(busqueda);
     };
 
     return (
@@ -20,7 +20,7 @@ const Buscador= () => {
           value={busqueda}
           onChangeText={(text) => setBusqueda(text)}
         />
-        <Button style={styles.button} title="Buscar" onPress={handleBusqueda} />
+        <Button style={styles.button} title="Buscar" onSubmit={handleBusqueda} />
       </View>
     );
 };
