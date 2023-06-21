@@ -6,11 +6,19 @@ import MuestraRandomAnime from './components/MuestraRandomAnime';
 import MuestraTopAnime from './components/MuestraTopAnime';
 import Buscador from './components/Buscador';
 import AnimesRecomendados from './components/AnimesRecomendados';
+import BuscaAnime from './services/BuscaAnime';
 
 const App = () => {
   
-  //Botones página principal, controlan comportamiento de la vista de la app cuando un boton es pulsado
-  //Sirve para mostrar u ocultar cosas
+  //Botones página principal, controlan comportamiento de la vista de la app
+
+  //Control de páginas => 0: Inicio, 1: Buscador
+  const [pagina, setPagina] = useState(0);
+  const handleBusqueda = () => {
+    console.log('Botón Top abierto');
+    setPagina(1);
+    console.log("Entra en handleBusqueda y valor de la Pagina es : ", pagina);
+  };
 
   //Animes Top
   const [botonPulsadoTop, setBotonPulsadoTop] = useState(false);
@@ -43,23 +51,38 @@ const App = () => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require('./assets/fondoNaruto.jpg')}
+        source={require("./assets/fondoNaruto.jpg")}
         style={styles.backgroundImage}
         imageStyle={styles.imageStyle}
       >
         <Header />
-        <Buscador />
-        <ScrollView style={{marginBottom: 150}}>
-        <View style={styles.buttonContainer}>
-        {!botonPulsadoTop && <MuestraRandomAnime onBotonCerradoRandom={handleButtonCancellRandom} onBotonPulsadoRandom={handleButtonPressRandom} style={styles.buttonRandom}/>}
-        {!botonPulsadoRandom && <MuestraTopAnime onBotonCerradoTop={handleButtonCancelTop} onBotonPulsadoTop={handleButtonPressTop} style={styles.buttonTop}/>}
-        </View>
-        <View style={{flex: 1}}>
-        <AnimesRecomendados/>
-          
-        </View>
+        <Buscador onBusqueda={handleBusqueda} />
+        <ScrollView style={{ marginBottom: 150 }}>
+          {pagina === 1 ? (
+            <BuscaAnime/>
+          ) : (
+            <View style={styles.buttonContainer}>
+            {!botonPulsadoTop && (
+              <MuestraRandomAnime
+                onBotonCerradoRandom={handleButtonCancellRandom}
+                onBotonPulsadoRandom={handleButtonPressRandom}
+                style={styles.buttonRandom}
+              />
+            )}
+            {!botonPulsadoRandom && (
+              <MuestraTopAnime
+                onBotonCerradoTop={handleButtonCancelTop}
+                onBotonPulsadoTop={handleButtonPressTop}
+                style={styles.buttonTop}
+              />
+            )}
+          </View>
+          )}
+          <View style={{ flex: 1 }}>
+            <AnimesRecomendados />
+          </View>
         </ScrollView>
-        
+
         <Footer />
       </ImageBackground>
     </View>

@@ -4,12 +4,13 @@ import { View, TextInput, Button, StyleSheet} from 'react-native';
 import BuscaAnime from '../services/BuscaAnime'
 
 
-const Buscador= () => {
+const Buscador= ({onBusqueda}) => {
 
     const [busqueda, setBusqueda] = useState("");
 
     const handleBusqueda = () => {
       BuscaAnime(busqueda);
+      onBusqueda();
     };
 
     return (
@@ -19,8 +20,9 @@ const Buscador= () => {
           placeholder="Busca tu anime fav"
           value={busqueda}
           onChangeText={(text) => setBusqueda(text)}
+          onSubmitEditing={handleBusqueda}
         />
-        <Button style={styles.button} title="Buscar" onSubmit={handleBusqueda} />
+        <Button style={styles.button} title="Buscar" onPress={handleBusqueda} />
       </View>
     );
 };
