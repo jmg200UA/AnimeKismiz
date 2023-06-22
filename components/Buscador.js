@@ -4,17 +4,25 @@ import { View, TextInput, Button, StyleSheet} from 'react-native';
 import BuscaAnime from '../services/BuscaAnime'
 
 
-const Buscador= ({onBusqueda, onBuscaAnime}) => {
+const Buscador= ({onBusqueda, onBuscaAnime, onReset}) => {
 
+  //Para actualizar la busqueda y mandar el parametro a BuscarAnime para hacer la peti
     const [busqueda, setBusqueda] = useState("");
-    var contbusqueda= "";
-
+    const [reset, setReset] = useState(false);
     const handleBusqueda = () => {
       if (busqueda.trim() !== "") {
         onBuscaAnime(busqueda);
         onBusqueda();
+        setReset(true);
       }
     };
+
+    //Para boton de reset para mandar a la pagina de inicio
+    const handleReset = () => {
+      onReset();
+      setReset(false);
+    };
+
 
     return (
       <View style={styles.container}>
@@ -25,6 +33,9 @@ const Buscador= ({onBusqueda, onBuscaAnime}) => {
           onChangeText={(text) => setBusqueda(text)}
           onSubmitEditing={handleBusqueda}
         />
+        {reset && (
+        <Button title='🔁' onPress={handleReset} style={{width: 5}}/>
+      )}
         <Button style={styles.button} title="Buscar" onPress={handleBusqueda} />
       </View>
     );

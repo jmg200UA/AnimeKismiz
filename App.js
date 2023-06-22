@@ -26,6 +26,11 @@ const App = () => {
     setValorBusqueda(busqueda); // Actualizar el valor de la búsqueda en el estado
   };
 
+  //Resetear buscador
+  const handleResetBuscador = (busqueda) => {
+    setPagina(0); // Volvemos a la página principal
+  };
+
   //Animes Top
   const [botonPulsadoTop, setBotonPulsadoTop] = useState(false);
   //Mostrar
@@ -62,7 +67,7 @@ const App = () => {
         imageStyle={styles.imageStyle}
       >
         <Header />
-        <Buscador onBusqueda={handleBusqueda} onBuscaAnime={handleBuscaAnime} />
+        <Buscador onBusqueda={handleBusqueda} onBuscaAnime={handleBuscaAnime} onReset={handleResetBuscador} />
         <ScrollView style={{ marginBottom: 150 }}>
           {/* Si pagina es = 1 se renderizan los animes buscados, sino el resto de lógica */}
           {pagina === 1 ? (

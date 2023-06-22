@@ -25,10 +25,10 @@ const BuscaAnime = ({ anime}) => {
   }, [anime]);
 
   //Redireccionar a url cuando se de click a la imagen
-  const handleImagenClick = () => {
-    // URL de destino
-    const url = resultados.url;
-    // Abre la URL en el navegador predeterminado del dispositivo
+  const handleImagenClick = (url) => {
+    console.log(url)
+    // const url = resultados.url;
+    // console.log("Url imagen: ", url);
     Linking.openURL(url);
   };
 
@@ -48,7 +48,7 @@ const BuscaAnime = ({ anime}) => {
         renderItem={({ item }) =>
         <View style={styles.centrado}>
         <View>
-        <TouchableOpacity onPress={handleImagenClick}>
+        <TouchableOpacity onPress={() => handleImagenClick(item.url)}>
         <Image source={{ uri: item.images.jpg.image_url }} style={{ width: 200, height: 300 }} />
         </TouchableOpacity>
         </View>
@@ -60,7 +60,6 @@ const BuscaAnime = ({ anime}) => {
         }
         keyExtractor={item => item.mal_id.toString()}
       />
-      <Text>{resultados[0].titles.title}</Text>
     </View>  
   );
 };
@@ -80,8 +79,9 @@ const styles = StyleSheet.create({
   },
   centrado:{
     flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20
   }
 });
 
