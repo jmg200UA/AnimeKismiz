@@ -20,6 +20,12 @@ const App = () => {
     console.log("Entra en handleBusqueda y valor de la Pagina es : ", pagina);
   };
 
+  //Buscador
+  const [valorBusqueda, setValorBusqueda] = useState('');
+  const handleBuscaAnime = (busqueda) => {
+    setValorBusqueda(busqueda); // Actualizar el valor de la búsqueda en el estado
+  };
+
   //Animes Top
   const [botonPulsadoTop, setBotonPulsadoTop] = useState(false);
   //Mostrar
@@ -56,10 +62,11 @@ const App = () => {
         imageStyle={styles.imageStyle}
       >
         <Header />
-        <Buscador onBusqueda={handleBusqueda} />
+        <Buscador onBusqueda={handleBusqueda} onBuscaAnime={handleBuscaAnime} />
         <ScrollView style={{ marginBottom: 150 }}>
+          {/* Si pagina es = 1 se renderizan los animes buscados, sino el resto de lógica */}
           {pagina === 1 ? (
-            <BuscaAnime/>
+            <BuscaAnime anime={valorBusqueda}/>
           ) : (
             <View style={styles.buttonContainer}>
             {!botonPulsadoTop && (
@@ -95,6 +102,8 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     flex: 1,
+    width: '100%',
+    height: '100%'
   },
   imageStyle: {
     opacity: 0.5,
