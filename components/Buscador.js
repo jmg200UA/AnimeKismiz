@@ -4,13 +4,16 @@ import { View, TextInput, Button, StyleSheet} from 'react-native';
 import BuscaAnime from '../services/BuscaAnime'
 
 
-const Buscador= ({onBusqueda}) => {
+const Buscador= ({onBusqueda, onBuscaAnime}) => {
 
     const [busqueda, setBusqueda] = useState("");
+    var contbusqueda= "";
 
     const handleBusqueda = () => {
-      BuscaAnime(busqueda);
-      onBusqueda();
+      if (busqueda.trim() !== "") {
+        onBuscaAnime(busqueda);
+        onBusqueda();
+      }
     };
 
     return (
