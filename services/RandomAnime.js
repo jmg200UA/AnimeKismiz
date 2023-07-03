@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, Text, Image, ActivityIndicator, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import axios from 'axios';
 
 
@@ -23,6 +23,14 @@ const RandomAnime = () => {
   
       fetchRandomAnime();
     }, []);
+
+    //Redireccionar a url cuando se de click a la imagen
+    const handleImagenClick = (url) => {
+      console.log(url)
+      // const url = resultados.url;
+      // console.log("Url imagen: ", url);
+      Linking.openURL(url);
+    };
   
     if (loading) {
       return (
@@ -37,7 +45,9 @@ const RandomAnime = () => {
         {anime && (
           <View style={styles.centrado}>
             <View>
+            <TouchableOpacity onPress={() => handleImagenClick(anime.url)}>
             <Image source={{ uri: anime.images.jpg.image_url }} style={{ width: 200, height: 300 }} />
+            </TouchableOpacity>
             </View>
             <Text><Text style={styles.bold}>Título:</Text> {anime.title}📚</Text>
             <Text><Text style={styles.bold}>Tipo:</Text> {anime.type}📍</Text>
