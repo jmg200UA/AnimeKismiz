@@ -60,8 +60,8 @@ const AnimesRecomendados = () => {
           <View style={styles.itemContainer}>
             <TouchableOpacity onPress={() => handleImagenClick(item.url)}>
             <Image source={{ uri: item.images.jpg.image_url }} style={styles.image} />
-            </TouchableOpacity>
             <Text style={styles.title}>{item.title}</Text>
+            </TouchableOpacity>
           </View>
         )}
       />
