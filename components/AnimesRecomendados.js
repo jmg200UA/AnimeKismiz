@@ -51,7 +51,6 @@ const AnimesRecomendados = () => {
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
             <Image source={{ uri: item.images.jpg.image_url }} style={styles.image} />
-            </TouchableOpacity>
             <Text style={styles.title}>{item.title}</Text>
           </View>
         )}
