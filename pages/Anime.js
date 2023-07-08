@@ -1,0 +1,1 @@
+//Página que mostrará la información de un anime específico
