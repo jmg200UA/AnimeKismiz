@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, FlatList, Text, Image, Dimensions } from 'react-native';
+import { View, StyleSheet, FlatList, Text, Image, Dimensions, TouchableOpacity, Linking } from 'react-native';
 
 const AnimesRecomendados = () => {
   const [recommendations, setRecommendations] = useState([]);
@@ -40,6 +40,14 @@ const AnimesRecomendados = () => {
       });
   }, []);
 
+  //Redireccionar a url cuando se de click a la imagen
+  const handleImagenClick = (url) => {
+    console.log(url)
+    // const url = resultados.url;
+    // console.log("Url imagen: ", url);
+    Linking.openURL(url);
+  };
+
   return (
     <View style={styles.container}>
         <Text style={styles.titleSection}>😍Animes recomendados😍</Text>
@@ -50,8 +58,10 @@ const AnimesRecomendados = () => {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
+            <TouchableOpacity onPress={() => handleImagenClick(item.url)}>
             <Image source={{ uri: item.images.jpg.image_url }} style={styles.image} />
             <Text style={styles.title}>{item.title}</Text>
+            </TouchableOpacity>
           </View>
         )}
       />

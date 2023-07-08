@@ -1,1 +1,0 @@
-//Página que mostrará los personajes de un anime en concreto seleccionado
