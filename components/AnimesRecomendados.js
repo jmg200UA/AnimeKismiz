@@ -58,10 +58,10 @@ const AnimesRecomendados = () => {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
-            <TouchableOpacity onPress={() => handleImagenClick(item.url)}>
+            <TouchableOpacity style={{marginBottom:0}} onPress={() => handleImagenClick(item.url)}>
             <Image source={{ uri: item.images.jpg.image_url }} style={styles.image} />
-            <Text style={styles.title}>{item.title}</Text>
             </TouchableOpacity>
+            <Text style={styles.title}>{item.title}</Text>
           </View>
         )}
       />
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   title: {
-    marginTop: 8,
+    marginTop: 0,
     fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
