@@ -41,12 +41,9 @@ const AnimesRecomendados = () => {
   }, []);
 
   //Redireccionar a url cuando se de click a la imagen
-  const handleImagenClick = (url) => {
-    console.log(url)
-    // const url = resultados.url;
-    // console.log("Url imagen: ", url);
-    Linking.openURL(url);
-  };
+  // const handleImagenClick = (url) => {
+  //   Linking.openURL(url);
+  // };
 
   return (
     <View style={styles.container}>
@@ -58,9 +55,9 @@ const AnimesRecomendados = () => {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <View style={styles.itemContainer}>
-            <TouchableOpacity style={{marginBottom:0}} onPress={() => handleImagenClick(item.url)}>
+            {/* <TouchableOpacity style={{marginBottom:0}} onPress={() => handleImagenClick(item.url)}> */}
             <Image source={{ uri: item.images.jpg.image_url }} style={styles.image} />
-            </TouchableOpacity>
+            {/* </TouchableOpacity> */}
             <Text style={styles.title}>{item.title}</Text>
           </View>
         )}
