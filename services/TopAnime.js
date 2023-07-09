@@ -35,18 +35,18 @@ const TopAnime = () => {
     }
 
     //Redireccionar a url cuando se de click a la imagen
-    // const handleImagenClick = (url) => {
-    //   Linking.openURL(url);
-    // };
+    const handleImagenClick = (url) => {
+      Linking.openURL(url);
+    };
   
     return (
       <View>
         {anime && (
           <View style={styles.centrado}>
             <View>
-            {/* <TouchableOpacity onPress={() => handleImagenClick(anime.url)}> */}
+            <TouchableOpacity onPress={() => handleImagenClick(anime.url)}>
             <Image source={{ uri: anime.images.jpg.image_url }} style={{ width: 200, height: 300 }} />
-            {/* </TouchableOpacity> */}
+            </TouchableOpacity>
             </View>
             <Text><Text style={styles.bold}>Título:</Text> {anime.title}📚</Text>
             <Text><Text style={styles.bold}>Tipo:</Text> {anime.type}📍</Text>
